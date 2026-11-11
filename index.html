@@ -308,5 +308,20 @@
   };
 </script>
 
+<script>
+  function toggleSidebar() {
+    var s = document.getElementById('sidebar');
+    var o = document.getElementById('sidebarOverlay');
+    s.classList.toggle('open');
+    o.classList.toggle('open');
+  }
+  function closeSidebar() {
+    document.getElementById('sidebar').classList.remove('open');
+    document.getElementById('sidebarOverlay').classList.remove('open');
+  }
+  document.querySelectorAll('.nav-item').forEach(function(el) {
+    el.addEventListener('click', closeSidebar);
+  });
+</script>
 </body>
 </html>
