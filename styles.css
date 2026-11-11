@@ -960,6 +960,11 @@ dialog {
   background: var(--bg-0);
   box-shadow: var(--sh-xl);
   overflow: hidden;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }
 
 dialog::backdrop {
