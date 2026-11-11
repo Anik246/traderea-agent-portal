@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradeREA | Partner Portal — Partner Profile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-mark">TR</div>
+      <div>
+        <div class="logo-name">Trade<span>REA</span></div>
+        <div class="logo-tag">Partner Portal</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Workspace</div>
+    <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+    <a href="referrals.html" class="nav-item"><i data-lucide="users"></i><span>My Referrals</span></a>
+    <a href="earnings.html" class="nav-item"><i data-lucide="dollar-sign"></i><span>Earnings</span></a>
+    <a href="marketing.html" class="nav-item"><i data-lucide="megaphone"></i><span>Marketing Library</span></a>
+    <a href="training.html" class="nav-item"><i data-lucide="graduation-cap"></i><span>Training</span></a>
+    <a href="profile.html" class="nav-item active"><i data-lucide="user"></i><span>Partner Profile</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-support"><i data-lucide="life-buoy"></i><span>Partner Support</span></div>
+    <div class="sidebar-user">
+      <div class="avatar">JD</div>
+      <div class="user-info">
+        <div class="user-name">Jordan Davis</div>
+        <div class="user-role">Demo Partner</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main-content">
+  <header class="topbar">
+    <nav class="breadcrumb">
+      <a href="index.html">Partner</a>
+      <i data-lucide="chevron-right"></i>
+      <span>Partner Profile</span>
+    </nav>
+    <div class="topbar-actions">
+      <div class="demo-chip"><span class="demo-dot"></span>Demo workspace</div>
+      <div class="user-menu">
+        <div class="user-menu-avatar">JD</div>
+        <div class="user-menu-info">
+          <div class="user-menu-name">Jordan Davis</div>
+          <div class="user-menu-role">Partner</div>
+        </div>
+        <i data-lucide="chevron-down" class="user-menu-chevron"></i>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Partner Profile</h1>
+        <p class="page-subtitle">Your details, brokerage and partnership preferences.</p>
+      </div>
+    </div>
+
+    <div class="card mb-24" style="max-width:640px">
+      <form id="profile-form">
+        <div class="card-row" style="margin-bottom:4px">
+          <div class="card-title">Partner information</div>
+        </div>
+        <p class="card-desc" style="margin-bottom:24px">Demo details are saved only in this browser and not submitted to any server.</p>
+
+        <div class="field">
+          <label class="field-label" for="f0">Partner name</label>
+          <input class="field-input" name="p0" id="f0" placeholder="Jordan Davis" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="f1">Brokerage</label>
+          <input class="field-input" name="p1" id="f1" placeholder="Example Realty Group" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="f2">Market</label>
+          <input class="field-input" name="p2" id="f2" placeholder="United States" autocomplete="off">
+        </div>
+        <div class="field">
+          <label class="field-label" for="f3">Email address</label>
+          <input class="field-input" type="email" name="p3" id="f3" placeholder="jordan@example.com" autocomplete="off">
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn btn-primary" type="submit">
+            <i data-lucide="save"></i>
+            Save profile
+          </button>
+          <button class="btn btn-secondary" type="button" onclick="resetProfile()">Reset to defaults</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="notice">
+      <i data-lucide="alert-triangle"></i>
+      <span>Sample data only. Profile details are stored locally in this browser and are not submitted to any server.</span>
+    </div>
+  </main>
+</div>
+
+<div id="toast" role="status"></div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  const defaults = ['Jordan Davis', 'Example Realty Group', 'United States', 'jordan@example.com'];
+
+  defaults.forEach((val, i) => {
+    const el = document.getElementById('f' + i);
+    el.value = localStorage.getItem('trea-p' + i) || val;
+  });
+
+  document.getElementById('profile-form').onsubmit = function(e) {
+    e.preventDefault();
+    new FormData(e.target).forEach((v, k) => localStorage.setItem('trea-' + k, v));
+    toast('Demo profile saved in this browser');
+  };
+
+  function resetProfile() {
+    defaults.forEach((val, i) => {
+      localStorage.removeItem('trea-p' + i);
+      document.getElementById('f' + i).value = val;
+    });
+    toast('Profile reset to defaults');
+  }
+
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 3000);
+  }
+</script>
+
+</body>
+</html>

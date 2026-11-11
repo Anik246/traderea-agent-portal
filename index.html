@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradeREA | Partner Portal — Overview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Sidebar -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-mark">TR</div>
+      <div>
+        <div class="logo-name">Trade<span>REA</span></div>
+        <div class="logo-tag">Partner Portal</div>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-label">Workspace</div>
+    <a href="index.html" class="nav-item active">
+      <i data-lucide="layout-dashboard"></i>
+      <span>Overview</span>
+    </a>
+    <a href="referrals.html" class="nav-item">
+      <i data-lucide="users"></i>
+      <span>My Referrals</span>
+    </a>
+    <a href="earnings.html" class="nav-item">
+      <i data-lucide="dollar-sign"></i>
+      <span>Earnings</span>
+    </a>
+    <a href="marketing.html" class="nav-item">
+      <i data-lucide="megaphone"></i>
+      <span>Marketing Library</span>
+    </a>
+    <a href="training.html" class="nav-item">
+      <i data-lucide="graduation-cap"></i>
+      <span>Training</span>
+    </a>
+    <a href="profile.html" class="nav-item">
+      <i data-lucide="user"></i>
+      <span>Partner Profile</span>
+    </a>
+  </nav>
+
+  <div class="sidebar-footer">
+    <div class="sidebar-support">
+      <i data-lucide="life-buoy"></i>
+      <span>Partner Support</span>
+    </div>
+    <div class="sidebar-user">
+      <div class="avatar">JD</div>
+      <div class="user-info">
+        <div class="user-name">Jordan Davis</div>
+        <div class="user-role">Demo Partner</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<!-- Main -->
+<div class="main-content">
+  <header class="topbar">
+    <nav class="breadcrumb">
+      <a href="index.html">Partner</a>
+      <i data-lucide="chevron-right"></i>
+      <span>Overview</span>
+    </nav>
+    <div class="topbar-actions">
+      <div class="demo-chip"><span class="demo-dot"></span>Demo workspace</div>
+      <div class="user-menu">
+        <div class="user-menu-avatar">JD</div>
+        <div class="user-menu-info">
+          <div class="user-menu-name">Jordan Davis</div>
+          <div class="user-menu-role">Partner</div>
+        </div>
+        <i data-lucide="chevron-down" class="user-menu-chevron"></i>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Good morning, Jordan.</h1>
+        <p class="page-subtitle">Your network. Their next opportunity. Let's grow together.</p>
+      </div>
+      <button class="btn btn-primary" onclick="document.getElementById('modal').showModal()">
+        <i data-lucide="plus"></i>
+        Introduce a client
+      </button>
+    </div>
+
+    <!-- Referral link hero -->
+    <div class="ref-hero">
+      <div>
+        <div class="ref-hero-eyebrow">Your referral link</div>
+        <div class="ref-hero-title">Share your personal partner link</div>
+        <p class="ref-hero-desc">Let interested clients explore TradeREA through your unique link. Every introduction starts here.</p>
+      </div>
+      <div>
+        <div class="ref-link-label">Sample referral link</div>
+        <div class="ref-link-row">
+          <input class="ref-link-input" aria-label="Referral link" readonly value="traderea.com/partners/jordan-demo">
+          <button class="btn btn-primary" onclick="copyLink()">
+            <i data-lucide="copy"></i>
+            Copy
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI grid -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Total introductions</div>
+        <div class="kpi-value">24</div>
+        <div class="kpi-hint ok">+6 this month</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">In onboarding</div>
+        <div class="kpi-value">8</div>
+        <div class="kpi-hint">In progress</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Funded investors</div>
+        <div class="kpi-value">6</div>
+        <div class="kpi-hint">Sample funded accounts</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Illustrative earnings</div>
+        <div class="kpi-value">$1,200</div>
+        <div class="kpi-hint">Subject to approved terms</div>
+      </div>
+    </div>
+
+    <!-- Chart + Steps -->
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-row">
+          <div>
+            <div class="card-title">Referral activity</div>
+            <div class="card-desc">Last 6 months · Sample data</div>
+          </div>
+        </div>
+        <div class="chart-bars">
+          <div class="bar-col"><div class="bar" style="height:32%"></div><div class="bar-label">May</div></div>
+          <div class="bar-col"><div class="bar" style="height:50%"></div><div class="bar-label">Jun</div></div>
+          <div class="bar-col"><div class="bar" style="height:44%"></div><div class="bar-label">Jul</div></div>
+          <div class="bar-col"><div class="bar" style="height:75%"></div><div class="bar-label">Aug</div></div>
+          <div class="bar-col"><div class="bar" style="height:62%"></div><div class="bar-label">Sep</div></div>
+          <div class="bar-col"><div class="bar active" style="height:100%"></div><div class="bar-label">Oct</div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-row">
+          <div class="card-title">Your next steps</div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">1</div>
+          <div class="step-body">
+            <div class="step-title">Complete partner training</div>
+            <div class="step-desc">Understand the introduction process</div>
+          </div>
+          <a href="training.html" class="btn btn-ghost btn-sm btn-icon"><i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="step-item">
+          <div class="step-num">2</div>
+          <div class="step-body">
+            <div class="step-title">Explore marketing toolkit</div>
+            <div class="step-desc">Find your first post or presentation</div>
+          </div>
+          <a href="marketing.html" class="btn btn-ghost btn-sm btn-icon"><i data-lucide="arrow-right"></i></a>
+        </div>
+        <div class="step-item">
+          <div class="step-num">3</div>
+          <div class="step-body">
+            <div class="step-title">Review partner details</div>
+            <div class="step-desc">Check your brokerage information</div>
+          </div>
+          <a href="profile.html" class="btn btn-ghost btn-sm btn-icon"><i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent referrals -->
+    <div class="card mb-24">
+      <div class="card-row">
+        <div class="card-title">Recent introductions</div>
+        <a href="referrals.html" class="btn btn-ghost btn-sm">
+          View all <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Introduced</th>
+              <th>Status</th>
+              <th>Est. referral fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alex Morgan</td>
+              <td class="text-muted">Oct 28, 2026</td>
+              <td><span class="badge badge-ok">Funded</span></td>
+              <td class="td-num">$200</td>
+            </tr>
+            <tr>
+              <td>Jordan Lee</td>
+              <td class="text-muted">Oct 26, 2026</td>
+              <td><span class="badge badge-warn">In onboarding</span></td>
+              <td class="td-num text-dim">—</td>
+            </tr>
+            <tr>
+              <td>Taylor Brooks</td>
+              <td class="text-muted">Oct 24, 2026</td>
+              <td><span class="badge badge-neutral">Introduced</span></td>
+              <td class="td-num text-dim">—</td>
+            </tr>
+            <tr>
+              <td>Casey Parker</td>
+              <td class="text-muted">Oct 21, 2026</td>
+              <td><span class="badge badge-ok">Funded</span></td>
+              <td class="td-num">$100</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="notice">
+      <i data-lucide="alert-triangle"></i>
+      <span>Sample data only. Compensation amounts are illustrative and subject to an approved agreement and applicable jurisdiction rules. This preview does not submit client information, process investments or issue payments.</span>
+    </div>
+
+  </main>
+</div>
+
+<!-- Modal -->
+<dialog id="modal">
+  <form id="referral-form">
+    <div class="modal-header">
+      <span class="modal-title">Introduce a client</span>
+      <button type="button" class="btn btn-ghost btn-icon btn-sm" onclick="document.getElementById('modal').close()" aria-label="Close">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc">Create a sample referral in this preview. No data is submitted.</p>
+      <span class="modal-label">Client name</span>
+      <input class="modal-input" id="client-name" required placeholder="Full name" autocomplete="off">
+      <span class="modal-label">Email address</span>
+      <input class="modal-input" type="email" id="client-email" required placeholder="client@example.com">
+      <div class="modal-check-row">
+        <input type="checkbox" id="consent-check" required>
+        <label for="consent-check">I confirm this person has consented to this introduction.</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal').close()">Cancel</button>
+      <button class="btn btn-primary" type="submit">Add demo referral</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" role="status"></div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 3000);
+  }
+
+  async function copyLink() {
+    try {
+      await navigator.clipboard.writeText('https://traderea.com/partners/jordan-demo');
+      toast('Sample link copied — demonstration link only');
+    } catch {
+      toast('Select and copy the sample link above');
+    }
+  }
+
+  document.getElementById('referral-form').onsubmit = function(e) {
+    e.preventDefault();
+    document.getElementById('modal').close();
+    e.target.reset();
+    toast('Sample referral added — view in My Referrals');
+  };
+</script>
+
+</body>
+</html>

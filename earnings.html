@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradeREA | Partner Portal — Earnings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-mark">TR</div>
+      <div>
+        <div class="logo-name">Trade<span>REA</span></div>
+        <div class="logo-tag">Partner Portal</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Workspace</div>
+    <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+    <a href="referrals.html" class="nav-item"><i data-lucide="users"></i><span>My Referrals</span></a>
+    <a href="earnings.html" class="nav-item active"><i data-lucide="dollar-sign"></i><span>Earnings</span></a>
+    <a href="marketing.html" class="nav-item"><i data-lucide="megaphone"></i><span>Marketing Library</span></a>
+    <a href="training.html" class="nav-item"><i data-lucide="graduation-cap"></i><span>Training</span></a>
+    <a href="profile.html" class="nav-item"><i data-lucide="user"></i><span>Partner Profile</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-support"><i data-lucide="life-buoy"></i><span>Partner Support</span></div>
+    <div class="sidebar-user">
+      <div class="avatar">JD</div>
+      <div class="user-info">
+        <div class="user-name">Jordan Davis</div>
+        <div class="user-role">Demo Partner</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main-content">
+  <header class="topbar">
+    <nav class="breadcrumb">
+      <a href="index.html">Partner</a>
+      <i data-lucide="chevron-right"></i>
+      <span>Earnings</span>
+    </nav>
+    <div class="topbar-actions">
+      <div class="demo-chip"><span class="demo-dot"></span>Demo workspace</div>
+      <div class="user-menu">
+        <div class="user-menu-avatar">JD</div>
+        <div class="user-menu-info">
+          <div class="user-menu-name">Jordan Davis</div>
+          <div class="user-menu-role">Partner</div>
+        </div>
+        <i data-lucide="chevron-down" class="user-menu-chevron"></i>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Earnings</h1>
+        <p class="page-subtitle">A transparent view of your illustrative partner rewards.</p>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Illustrative total</div>
+        <div class="kpi-value">$1,200</div>
+        <div class="kpi-hint">Sample figure only</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Paid · sample</div>
+        <div class="kpi-value">$900</div>
+        <div class="kpi-hint ok">3 payments</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Pending · sample</div>
+        <div class="kpi-value">$300</div>
+        <div class="kpi-hint">Awaiting funding</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Next payout</div>
+        <div class="kpi-value kpi-sm">Not scheduled</div>
+        <div class="kpi-hint">No payout account connected</div>
+      </div>
+    </div>
+
+    <div class="card mb-24">
+      <div class="card-row">
+        <div class="card-title">Reward activity</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Introduced</th>
+              <th>Status</th>
+              <th>Est. referral fee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Alex Morgan</td>
+              <td class="text-muted">Oct 28, 2026</td>
+              <td><span class="badge badge-ok">Funded</span></td>
+              <td class="td-num">$200</td>
+            </tr>
+            <tr>
+              <td>Casey Parker</td>
+              <td class="text-muted">Oct 21, 2026</td>
+              <td><span class="badge badge-ok">Funded</span></td>
+              <td class="td-num">$100</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-dim mt-16">Final eligibility and payout timing follow the executed partner agreement. No live payout account is connected.</p>
+    </div>
+
+    <div class="notice">
+      <i data-lucide="alert-triangle"></i>
+      <span>Sample data only. Compensation amounts are illustrative and subject to an approved agreement and applicable jurisdiction rules. This preview does not submit client information, process investments or issue payments.</span>
+    </div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>lucide.createIcons();</script>
+
+</body>
+</html>

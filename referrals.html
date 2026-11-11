@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradeREA | Partner Portal — My Referrals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-mark">TR</div>
+      <div>
+        <div class="logo-name">Trade<span>REA</span></div>
+        <div class="logo-tag">Partner Portal</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Workspace</div>
+    <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+    <a href="referrals.html" class="nav-item active"><i data-lucide="users"></i><span>My Referrals</span></a>
+    <a href="earnings.html" class="nav-item"><i data-lucide="dollar-sign"></i><span>Earnings</span></a>
+    <a href="marketing.html" class="nav-item"><i data-lucide="megaphone"></i><span>Marketing Library</span></a>
+    <a href="training.html" class="nav-item"><i data-lucide="graduation-cap"></i><span>Training</span></a>
+    <a href="profile.html" class="nav-item"><i data-lucide="user"></i><span>Partner Profile</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-support"><i data-lucide="life-buoy"></i><span>Partner Support</span></div>
+    <div class="sidebar-user">
+      <div class="avatar">JD</div>
+      <div class="user-info">
+        <div class="user-name">Jordan Davis</div>
+        <div class="user-role">Demo Partner</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main-content">
+  <header class="topbar">
+    <nav class="breadcrumb">
+      <a href="index.html">Partner</a>
+      <i data-lucide="chevron-right"></i>
+      <span>My Referrals</span>
+    </nav>
+    <div class="topbar-actions">
+      <div class="demo-chip"><span class="demo-dot"></span>Demo workspace</div>
+      <div class="user-menu">
+        <div class="user-menu-avatar">JD</div>
+        <div class="user-menu-info">
+          <div class="user-menu-name">Jordan Davis</div>
+          <div class="user-menu-role">Partner</div>
+        </div>
+        <i data-lucide="chevron-down" class="user-menu-chevron"></i>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">My Referrals</h1>
+        <p class="page-subtitle">Keep every introduction moving, from first connection to funding.</p>
+      </div>
+      <button class="btn btn-primary" onclick="document.getElementById('modal').showModal()">
+        <i data-lucide="plus"></i>
+        Introduce a client
+      </button>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-wrap">
+        <i data-lucide="search"></i>
+        <input class="search-input" id="search" placeholder="Search client name…" oninput="filter()" aria-label="Search referrals">
+      </div>
+      <select class="select" id="status-filter" onchange="filter()" aria-label="Filter by status">
+        <option>All statuses</option>
+        <option>Introduced</option>
+        <option>In onboarding</option>
+        <option>Funded</option>
+      </select>
+      <button class="btn btn-secondary" onclick="exportCSV()">
+        <i data-lucide="download"></i>
+        Export CSV
+      </button>
+    </div>
+
+    <div class="card mb-24">
+      <div class="table-wrap">
+        <table id="referral-table">
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Introduced</th>
+              <th>Status</th>
+              <th>Est. referral fee</th>
+            </tr>
+          </thead>
+          <tbody id="referral-body"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="notice">
+      <i data-lucide="alert-triangle"></i>
+      <span>Sample data only. Compensation amounts are illustrative and subject to an approved agreement and applicable jurisdiction rules. This preview does not submit client information, process investments or issue payments.</span>
+    </div>
+  </main>
+</div>
+
+<!-- Modal -->
+<dialog id="modal">
+  <form id="referral-form">
+    <div class="modal-header">
+      <span class="modal-title">Introduce a client</span>
+      <button type="button" class="btn btn-ghost btn-icon btn-sm" onclick="document.getElementById('modal').close()" aria-label="Close">
+        <i data-lucide="x"></i>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-desc">Create a sample referral in this preview. No data is submitted.</p>
+      <span class="modal-label">Client name</span>
+      <input class="modal-input" id="client-name" required placeholder="Full name" autocomplete="off">
+      <span class="modal-label">Email address</span>
+      <input class="modal-input" type="email" id="client-email" required placeholder="client@example.com">
+      <div class="modal-check-row">
+        <input type="checkbox" id="consent-check" required>
+        <label for="consent-check">I confirm this person has consented to this introduction.</label>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" onclick="document.getElementById('modal').close()">Cancel</button>
+      <button class="btn btn-primary" type="submit">Add demo referral</button>
+    </div>
+  </form>
+</dialog>
+
+<div id="toast" role="status"></div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  const defaultReferrals = [
+    { name: 'Alex Morgan',   date: 'Oct 28, 2026', status: 'Funded',        fee: '$200' },
+    { name: 'Jordan Lee',    date: 'Oct 26, 2026', status: 'In onboarding', fee: '—'    },
+    { name: 'Taylor Brooks', date: 'Oct 24, 2026', status: 'Introduced',    fee: '—'    },
+    { name: 'Casey Parker',  date: 'Oct 21, 2026', status: 'Funded',        fee: '$100' },
+  ];
+
+  let referrals = JSON.parse(localStorage.getItem('trea-demo-referrals') || 'null') || defaultReferrals;
+
+  function esc(t) {
+    return t.replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+  }
+
+  function statusClass(s) {
+    if (s === 'Funded') return 'badge-ok';
+    if (s === 'In onboarding') return 'badge-warn';
+    return 'badge-neutral';
+  }
+
+  function renderTable(list) {
+    const tbody = document.getElementById('referral-body');
+    if (!list.length) {
+      tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;padding:32px;color:var(--text-3)">No referrals found</td></tr>';
+      return;
+    }
+    tbody.innerHTML = list.map(r => `
+      <tr>
+        <td>${esc(r.name)}</td>
+        <td class="text-muted">${r.date}</td>
+        <td><span class="badge ${statusClass(r.status)}">${r.status}</span></td>
+        <td class="td-num">${r.fee}</td>
+      </tr>
+    `).join('');
+  }
+
+  function filter() {
+    const search = document.getElementById('search').value.toLowerCase();
+    const status = document.getElementById('status-filter').value;
+    renderTable(referrals.filter(r =>
+      r.name.toLowerCase().includes(search) &&
+      (status === 'All statuses' || r.status === status)
+    ));
+  }
+
+  function exportCSV() {
+    const csv = 'Client,Introduced,Status,Estimated fee\n' +
+      referrals.map(r => [r.name, r.date, r.status, r.fee]
+        .map(v => '"' + v.replace(/"/g, '""') + '"').join(',')).join('\n');
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([csv], { type: 'text/plain' }));
+    a.download = 'demo-referrals.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  }
+
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 3000);
+  }
+
+  document.getElementById('referral-form').onsubmit = function(e) {
+    e.preventDefault();
+    referrals.unshift({
+      name: document.getElementById('client-name').value,
+      date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+      status: 'Introduced',
+      fee: '—'
+    });
+    localStorage.setItem('trea-demo-referrals', JSON.stringify(referrals));
+    document.getElementById('modal').close();
+    e.target.reset();
+    renderTable(referrals);
+    toast('Sample referral added locally');
+    lucide.createIcons();
+  };
+
+  renderTable(referrals);
+</script>
+
+</body>
+</html>

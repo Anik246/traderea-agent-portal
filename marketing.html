@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradeREA | Partner Portal — Marketing Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-mark">TR</div>
+      <div>
+        <div class="logo-name">Trade<span>REA</span></div>
+        <div class="logo-tag">Partner Portal</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Workspace</div>
+    <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+    <a href="referrals.html" class="nav-item"><i data-lucide="users"></i><span>My Referrals</span></a>
+    <a href="earnings.html" class="nav-item"><i data-lucide="dollar-sign"></i><span>Earnings</span></a>
+    <a href="marketing.html" class="nav-item active"><i data-lucide="megaphone"></i><span>Marketing Library</span></a>
+    <a href="training.html" class="nav-item"><i data-lucide="graduation-cap"></i><span>Training</span></a>
+    <a href="profile.html" class="nav-item"><i data-lucide="user"></i><span>Partner Profile</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-support"><i data-lucide="life-buoy"></i><span>Partner Support</span></div>
+    <div class="sidebar-user">
+      <div class="avatar">JD</div>
+      <div class="user-info">
+        <div class="user-name">Jordan Davis</div>
+        <div class="user-role">Demo Partner</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main-content">
+  <header class="topbar">
+    <nav class="breadcrumb">
+      <a href="index.html">Partner</a>
+      <i data-lucide="chevron-right"></i>
+      <span>Marketing Library</span>
+    </nav>
+    <div class="topbar-actions">
+      <div class="demo-chip"><span class="demo-dot"></span>Demo workspace</div>
+      <div class="user-menu">
+        <div class="user-menu-avatar">JD</div>
+        <div class="user-menu-info">
+          <div class="user-menu-name">Jordan Davis</div>
+          <div class="user-menu-role">Partner</div>
+        </div>
+        <i data-lucide="chevron-down" class="user-menu-chevron"></i>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Marketing Library</h1>
+        <p class="page-subtitle">Ready-to-use resources to start better conversations.</p>
+      </div>
+    </div>
+
+    <div class="info-banner">
+      <i data-lucide="info"></i>
+      <div>
+        <div class="info-title">Review required before use</div>
+        <div class="info-body">All materials are draft copies and require compliance review before distribution. Use only approved platform information and do not promise returns, guaranteed liquidity, or investor eligibility.</div>
+      </div>
+    </div>
+
+    <div class="mkt-grid">
+
+      <div class="mkt-card">
+        <div class="mkt-art">
+          <div class="mkt-art-icon"><i data-lucide="file-text"></i></div>
+          <div class="mkt-art-title">Partner Introduction</div>
+          <div class="mkt-art-sub">Overview copy</div>
+        </div>
+        <div class="mkt-body">
+          <div class="mkt-title">Partner introduction</div>
+          <p class="mkt-desc">A brief introduction to TradeREA for your network. Clear, compliant language to start the conversation.</p>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <span class="badge badge-warn">DRAFT · REVIEW REQUIRED</span>
+          </div>
+          <button class="btn btn-secondary w-full" onclick="downloadAsset(0)">
+            <i data-lucide="download"></i>
+            Download draft copy
+          </button>
+        </div>
+      </div>
+
+      <div class="mkt-card">
+        <div class="mkt-art">
+          <div class="mkt-art-icon"><i data-lucide="share-2"></i></div>
+          <div class="mkt-art-title">Social Media Starter</div>
+          <div class="mkt-art-sub">Platform awareness post</div>
+        </div>
+        <div class="mkt-body">
+          <div class="mkt-title">Social media starter</div>
+          <p class="mkt-desc">A platform awareness post for your social channels. Compliant language for LinkedIn or similar platforms.</p>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <span class="badge badge-warn">DRAFT · REVIEW REQUIRED</span>
+          </div>
+          <button class="btn btn-secondary w-full" onclick="downloadAsset(1)">
+            <i data-lucide="download"></i>
+            Download draft copy
+          </button>
+        </div>
+      </div>
+
+      <div class="mkt-card">
+        <div class="mkt-art">
+          <div class="mkt-art-icon"><i data-lucide="video"></i></div>
+          <div class="mkt-art-title">Webinar Invitation</div>
+          <div class="mkt-art-sub">Educational event copy</div>
+        </div>
+        <div class="mkt-body">
+          <div class="mkt-title">Webinar invitation</div>
+          <p class="mkt-desc">Invite your network to an educational conversation about real estate investing with TradeREA.</p>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+            <span class="badge badge-warn">DRAFT · REVIEW REQUIRED</span>
+          </div>
+          <button class="btn btn-secondary w-full" onclick="downloadAsset(2)">
+            <i data-lucide="download"></i>
+            Download draft copy
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card mb-24">
+      <div class="card-title" style="margin-bottom:8px">Keep your message clear</div>
+      <p class="text-muted text-sm" style="line-height:1.6">Use approved platform information. Do not promise returns, guaranteed liquidity or investor eligibility. Specific investment questions should go to the appropriately registered team. Disclose any applicable referral compensation.</p>
+    </div>
+
+    <div class="notice">
+      <i data-lucide="alert-triangle"></i>
+      <span>Sample data only. Compensation amounts are illustrative and subject to an approved agreement and applicable jurisdiction rules. This preview does not submit client information, process investments or issue payments.</span>
+    </div>
+  </main>
+</div>
+
+<div id="toast" role="status"></div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  const assets = [
+    'Explore TradeREA, a platform for real estate investment opportunities. Availability and eligibility depend on your jurisdiction and the offering. Contact the authorized team for details.',
+    'Curious about digital access to real estate investments? Learn about TradeREA and the risks involved. Investments may lose value; resale is not guaranteed.',
+    'Join an educational introduction to TradeREA. Learn about the platform, investor eligibility and investment risks. Event details to be confirmed.'
+  ];
+
+  function downloadAsset(i) {
+    const text = 'DRAFT — REQUIRES COMPLIANCE REVIEW BEFORE USE\n\n' + assets[i] + '\n\nDisclose any applicable referral compensation.';
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+    a.download = 'TradeREA-draft-copy.txt';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    toast('Draft copy downloaded');
+  }
+
+  function toast(msg) {
+    const el = document.getElementById('toast');
+    el.textContent = msg;
+    el.style.display = 'block';
+    setTimeout(() => el.style.display = 'none', 3000);
+  }
+</script>
+
+</body>
+</html>

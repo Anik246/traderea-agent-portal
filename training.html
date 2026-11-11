@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TradeREA | Partner Portal — Training</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="logo">
+      <div class="logo-mark">TR</div>
+      <div>
+        <div class="logo-name">Trade<span>REA</span></div>
+        <div class="logo-tag">Partner Portal</div>
+      </div>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    <div class="nav-label">Workspace</div>
+    <a href="index.html" class="nav-item"><i data-lucide="layout-dashboard"></i><span>Overview</span></a>
+    <a href="referrals.html" class="nav-item"><i data-lucide="users"></i><span>My Referrals</span></a>
+    <a href="earnings.html" class="nav-item"><i data-lucide="dollar-sign"></i><span>Earnings</span></a>
+    <a href="marketing.html" class="nav-item"><i data-lucide="megaphone"></i><span>Marketing Library</span></a>
+    <a href="training.html" class="nav-item active"><i data-lucide="graduation-cap"></i><span>Training</span></a>
+    <a href="profile.html" class="nav-item"><i data-lucide="user"></i><span>Partner Profile</span></a>
+  </nav>
+  <div class="sidebar-footer">
+    <div class="sidebar-support"><i data-lucide="life-buoy"></i><span>Partner Support</span></div>
+    <div class="sidebar-user">
+      <div class="avatar">JD</div>
+      <div class="user-info">
+        <div class="user-name">Jordan Davis</div>
+        <div class="user-role">Demo Partner</div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="main-content">
+  <header class="topbar">
+    <nav class="breadcrumb">
+      <a href="index.html">Partner</a>
+      <i data-lucide="chevron-right"></i>
+      <span>Training</span>
+    </nav>
+    <div class="topbar-actions">
+      <div class="demo-chip"><span class="demo-dot"></span>Demo workspace</div>
+      <div class="user-menu">
+        <div class="user-menu-avatar">JD</div>
+        <div class="user-menu-info">
+          <div class="user-menu-name">Jordan Davis</div>
+          <div class="user-menu-role">Partner</div>
+        </div>
+        <i data-lucide="chevron-down" class="user-menu-chevron"></i>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <div class="page-header">
+      <div>
+        <h1 class="page-title">Training</h1>
+        <p class="page-subtitle">Build confidence before you make your first introduction.</p>
+      </div>
+    </div>
+
+    <div id="lesson"></div>
+
+    <div class="card mb-24">
+      <div class="card-row">
+        <div class="card-title">Your learning path</div>
+        <span class="text-sm text-dim" id="progress-label"></span>
+      </div>
+      <div id="course-list"></div>
+    </div>
+
+    <div class="notice">
+      <i data-lucide="alert-triangle"></i>
+      <span>Sample data only. These reading modules do not certify or authorize a partner. This preview does not submit client information, process investments or issue payments.</span>
+    </div>
+  </main>
+</div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  lucide.createIcons();
+
+  const courses = [
+    {
+      title: 'Introducing TradeREA',
+      body: 'TradeREA connects eligible investors with real estate investment opportunities. Availability depends on jurisdiction and offering terms. Understand the platform before introducing it.'
+    },
+    {
+      title: 'Making a consented referral',
+      body: 'Obtain permission before sharing someone\'s contact information. Explain the purpose of the introduction and any applicable referral compensation. Use the authorized referral process.'
+    },
+    {
+      title: 'Your role and promotional boundaries',
+      body: 'Introduce the platform using approved materials. Do not recommend specific securities, assess suitability, handle investor funds or promise outcomes unless separately authorized and appropriately registered.'
+    },
+    {
+      title: 'Understanding referral disclosures',
+      body: 'Referral terms, compensation, conflicts and the parties\' roles must be clearly disclosed as required. Your executed agreement and the responsible dealer determine the permitted process.'
+    }
+  ];
+
+  function renderCourses() {
+    const done = courses.filter((_, i) => localStorage.getItem('trea-course-' + i)).length;
+    document.getElementById('progress-label').textContent = done + ' of ' + courses.length + ' completed';
+
+    document.getElementById('course-list').innerHTML = courses.map((c, i) => {
+      const isDone = !!localStorage.getItem('trea-course-' + i);
+      return `
+        <div class="module-item">
+          <div class="module-num ${isDone ? 'done' : ''}">${isDone ? '✓' : (i + 1)}</div>
+          <div class="module-body">
+            <div class="module-title">${c.title}</div>
+            <div class="module-meta">${isDone ? 'Completed in this preview' : '3 minute reading module'}</div>
+          </div>
+          <button class="btn ${isDone ? 'btn-ghost' : 'btn-secondary'} btn-sm" onclick="openCourse(${i})">
+            ${isDone ? 'Review' : 'Read module'}
+          </button>
+        </div>
+      `;
+    }).join('');
+    lucide.createIcons();
+  }
+
+  function openCourse(i) {
+    localStorage.setItem('trea-course-' + i, 'read');
+    document.getElementById('lesson').innerHTML = `
+      <div class="lesson-card">
+        <div class="lesson-eyebrow">Module ${i + 1} of ${courses.length}</div>
+        <div class="lesson-title">${courses[i].title}</div>
+        <p class="lesson-body">${courses[i].body}</p>
+        <div style="display:flex;align-items:center;gap:10px">
+          <span class="badge badge-blue">READ · DEMO ONLY</span>
+          <span class="text-sm text-dim">This module does not certify or authorize a partner.</span>
+        </div>
+      </div>
+    `;
+    renderCourses();
+    lucide.createIcons();
+  }
+
+  renderCourses();
+</script>
+
+</body>
+</html>
