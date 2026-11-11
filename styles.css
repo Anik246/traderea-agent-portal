@@ -1090,6 +1090,39 @@ hr {
 .gap-8 { gap: 8px; }
 
 /* ── Responsive ────────────────────────────────────────────────── */
+/* ── Hamburger (hidden on desktop) ─────────────────────────────── */
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--bd);
+  border-radius: var(--r-md);
+  background: var(--bg-0);
+  color: var(--text-1);
+  cursor: pointer;
+  flex-shrink: 0;
+  box-shadow: var(--sh-xs);
+  transition: background var(--ease-fast);
+}
+
+.hamburger:hover { background: var(--bg-2); }
+.hamburger svg { width: 18px; height: 18px; stroke-width: 2; pointer-events: none; }
+
+/* Sidebar overlay backdrop */
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 15, 30, 0.45);
+  backdrop-filter: blur(2px);
+  z-index: 99;
+}
+
+.sidebar-overlay.open { display: block; }
+
+/* ── Tablet (1100px) ───────────────────────────────────────────── */
 @media (max-width: 1100px) {
   .kpi-grid { grid-template-columns: repeat(2, 1fr); }
   .grid-2   { grid-template-columns: 1fr; }
@@ -1097,51 +1130,82 @@ hr {
   .ref-hero { grid-template-columns: 1fr; gap: 20px; }
 }
 
+/* ── Mobile (800px) — sidebar becomes a slide-in drawer ────────── */
 @media (max-width: 800px) {
   :root { --sidebar-w: 0px; }
 
+  /* Sidebar hidden off-screen, slides in when .open */
   .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    flex-direction: row;
-    border-right: 0;
-    border-bottom: 1px solid var(--bd);
+    width: 272px;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    z-index: 100;
+    box-shadow: none;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+    box-shadow: var(--sh-xl);
   }
 
   .main-content { margin-left: 0; }
 
-  .sidebar-header { padding: 12px 14px; border-bottom: 0; border-right: 1px solid var(--bd); flex-shrink: 0; }
-  .logo-tag, .logo-mark { display: none; }
+  /* Topbar — show hamburger, reduce padding */
+  .topbar { padding: 0 16px; gap: 10px; }
+  .hamburger { display: flex; }
 
-  .sidebar-nav {
-    display: flex;
-    flex-direction: row;
-    padding: 6px 8px;
-    overflow-x: auto;
-    gap: 2px;
-    flex: 1;
-  }
+  /* Breadcrumb can shrink */
+  .breadcrumb { overflow: hidden; white-space: nowrap; }
+  .breadcrumb a, .breadcrumb span { overflow: hidden; text-overflow: ellipsis; }
 
-  .nav-label { display: none; }
+  /* Demo chip hidden on small screens to save space */
+  .demo-chip { display: none; }
 
-  .nav-item {
-    white-space: nowrap;
-    flex-shrink: 0;
-    padding: 7px 10px;
-  }
+  /* Page body */
+  .page-body { padding: 20px 16px 40px; }
 
-  .sidebar-footer { display: none; }
+  /* Page header stacks */
+  .page-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .page-title { font-size: 22px; }
 
-  .topbar { padding: 0 20px; }
-  .page-body { padding: 20px 20px 32px; }
+  /* Grids go single column */
   .mkt-grid { grid-template-columns: 1fr; }
-  dialog { width: calc(100vw - 32px); }
+  .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+
+  /* Cards */
+  .card { padding: 16px 18px; }
+  .ref-hero { padding: 20px; }
+
+  /* Modal full-width */
+  dialog {
+    width: calc(100vw - 24px);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Toolbar wraps */
+  .toolbar { flex-wrap: wrap; }
+  .search-wrap { max-width: 100%; flex: 1 1 160px; }
 }
 
-@media (max-width: 540px) {
+/* ── Small mobile (480px) ──────────────────────────────────────── */
+@media (max-width: 480px) {
   .kpi-grid { grid-template-columns: 1fr; }
-  .page-header { flex-direction: column; align-items: flex-start; }
-  .toolbar { flex-wrap: wrap; }
-  table { min-width: 480px; }
+  .kpi-value { font-size: 26px; }
+  .page-title { font-size: 20px; }
+
+  .topbar { height: 52px; }
+  .user-menu-info { display: none; }
+  .user-menu { padding: 5px 7px; gap: 6px; }
+
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  table { min-width: 460px; }
+
+  .btn { font-size: 12px; padding: 0 11px; }
+  .page-body { padding: 16px 12px 40px; }
+
+  .modal-body { padding: 16px 18px; }
+  .modal-header { padding: 14px 18px 12px; }
+  .modal-footer { padding: 12px 18px; }
 }

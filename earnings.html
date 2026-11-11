@@ -11,7 +11,8 @@
 </head>
 <body>
 
-<aside class="sidebar">
+<div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+<aside class="sidebar" id="sidebar">
   <div class="sidebar-header">
     <div class="logo">
       <div class="logo-mark">TR</div>
@@ -44,6 +45,7 @@
 
 <div class="main-content">
   <header class="topbar">
+    <button class="hamburger" onclick="toggleSidebar()" aria-label="Menu"><i data-lucide="menu"></i></button>
     <nav class="breadcrumb">
       <a href="index.html">Partner</a>
       <i data-lucide="chevron-right"></i>
